@@ -22,6 +22,10 @@ install=hon.install
 source=('hon.desktop' 'license' "http://dl.heroesofnewerth.com/HoNClient-${pkgver}.sh")
 noextract=("HoNClient-${pkgver}.sh")
 
+prepare() {
+	unzip ${srcdir}/HoNClient-${pkgver}.sh data/*
+}
+
 package() {
     ## Thx to messo8080 for reminding uss about the /tmp dir
     ## On new installs this dir is in ram by default ^^.
@@ -45,8 +49,8 @@ Continue?"
     mkdir -p "${pkgdir}/opt/"
     mkdir -p "${pkgdir}/usr/share/licenses/${pkgname}"
 
-    # Extract Files
-    sh -c "unzip \"${srcdir}/HoNClient-${pkgver}.sh\" data/* -d \"${pkgdir}/opt/\"; true"
+	# Extract Files
+    #sh -c "unzip \"${srcdir}/HoNClient-${pkgver}.sh\" data/* -d \"${pkgdir}/opt/\"; true"
     mv "${pkgdir}"/opt/{data,hon}
 
     # Install License
