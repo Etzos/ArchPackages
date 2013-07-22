@@ -58,18 +58,17 @@ Continue?"
     ## freetype causes segfault on some systems O_o
     _system_libs="libcurl.so.4  libgcc_s.so.1  libspeexdsp.so.1  libspeex.so.1  libstdc++.so.6 libfreetype.so.6 libjpeg.so.62"
     if [ "${CARCH}" == 'x86_64' ]; then
-	## remove 32bit's
-	rm -rf "${pkgdir}"/opt/hon/*-x86{,.so}
-	rm -rf "${pkgdir}"/opt/hon/{editor,game,Awesomium}/*-x86{,.so}
-	cd "${pkgdir}/opt/hon/libs-x86_64" && rm ${_system_libs}
+	    ## remove 32bit's
+	    rm -rf "${pkgdir}"/opt/hon/*-x86{,.so}
+	    rm -rf "${pkgdir}"/opt/hon/{editor,game,Awesomium}/*-x86{,.so}
+	    cd "${pkgdir}/opt/hon/libs-x86_64" && rm ${_system_libs}
     else
         ## remove 64bit's
         rm -rf "${pkgdir}"/opt/hon/*-x86_64{,.so}
         rm -rf "${pkgdir}"/opt/hon/{editor,game,Awesomium}/*-x86_64{,.so}
-	cd "${pkgdir}/opt/hon/libs-x86" && rm ${_system_libs}
+	    cd "${pkgdir}/opt/hon/libs-x86" && rm ${_system_libs}
     fi
 }
 
 md5sums=('d3fa56f17b5eb21d4da01e8d628fbc97'
-         'dd2c8cd0f5bcafa25cfb583a92e21aec'
          'bf4c94b847571c2efe5199263c5dc590')
