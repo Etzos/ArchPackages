@@ -1,0 +1,18 @@
+# Linux Files
+.directory
+
+# Editor Files
+*.bak
+*~
+
+# Zipped files
+*.zip
+*.xz
+*.gz
+
+# Build and source directories
+*/pkg/
+*/src/
+
+# Hide folder of bad or imcomplete PKGBUILDs
+bad/
