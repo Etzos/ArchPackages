@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Strife
+Comment=Second generation MOBA created by S2 Games
+Exec=/usr/bin/strife
+Icon=/opt/strife/icon.png
+StartupNotify=true
+Terminal=false
+Categories=Game;StrategyGame;

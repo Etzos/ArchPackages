@@ -1,0 +1,61 @@
+# Maintainer: Sunny <sunnyiez@hotmail.com>
+# Contributer: Etzos <supercodingmonkey@gmail.com>
+pkgname=strife
+pkgver=0.4.0.2
+pkgrel=2
+pkgdesc="Second generation MOBA created by S2 Games"
+url="https://strife.com"
+arch=('i686' 'x86_64')
+license=('custom:strife')
+depends=('alsa-lib' 'gconf' 'gtk2' 'nss' 'libxtst')
+options=(!strip)
+install='strife.install'
+_arch=""
+if test "$CARCH" == x86_64; then
+    _arch="64"
+fi
+source=("http://dl.strife.com/af1dfc2754268375727a3eec1749b27e/StrifeLinux${_arch}-${pkgver}.tar.gz"
+        "strife.desktop")
+md5sums=('2879f0b65e7ccabda16eedda27f0b6a9'
+         'ca27d2d4bb85cf3bf694cc95fca40ca5')
+
+# WARNING: I am using a faster compression algorithm by default, this will sometimes not work with AUR helpers!
+# You have been warned.
+PKGEXT=.tar.gz
+
+package() {
+    # WARNING: Building in /tmp can be a potential problem if you don't have much RAM, if you want to go ahead
+    # just remove the following if-fi block.
+    if `pwd | grep -q "/tmp"`; then
+        echo "Building in /tmp is (probably) a bad idea."
+        echo "Read the PKGBUILD for information on this failure."
+        false
+    fi
+
+    cd "${srcdir}/Strife"
+
+    # Create the install directories
+    mkdir -p "${pkgdir}/opt/strife" "${pkgdir}/usr/bin" "${pkgdir}/usr/share/licenses/${pkgname}"
+
+    # Install the bulk of the game
+    cp -r ./* "${pkgdir}/opt/strife/"
+
+    # Install the licenses
+    install -Dm644 "license.txt" "${pkgdir}/usr/share/licenses/${pkgname}/license.txt"
+    install -Dm644 "tos_en.txt" "${pkgdir}/usr/share/licenses/${pkgname}/tos_en.txt"
+    install -Dm644 "tos_ru.txt" "${pkgdir}/usr/share/licenses/${pkgname}/tos_pt_br.txt"
+    install -Dm644 "tos_ru.txt" "${pkgdir}/usr/share/licenses/${pkgname}/tos_ru.txt"
+    install -Dm644 "tos_th.txt" "${pkgdir}/usr/share/licenses/${pkgname}/tos_th.txt"
+    install -Dm644 "tos_zh.txt" "${pkgdir}/usr/share/licenses/${pkgname}/tos_zh.txt"
+    install -Dm644 "tos.txt" "${pkgdir}/usr/share/licenses/${pkgname}/tos.txt"
+
+    # Install the desktop shortcut
+    install -Dm644 "${srcdir}/strife.desktop" "${pkgdir}/usr/share/applications/strife.desktop"
+
+    # Add link to binary
+    ln -s "/opt/strife/bin/strife" "${pkgdir}/usr/bin/strife"
+
+    # Change group to "games" and assure write permissions
+    chown -R :games "${pkgdir}/opt/strife"
+    chmod -R g+w "${pkgdir}/opt/strife"
+}

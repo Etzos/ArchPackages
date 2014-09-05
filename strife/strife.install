@@ -1,0 +1,15 @@
+post_install() {
+    echo "You must agree to the terms in the TOS and license found in"
+    echo "/usr/share/licenses/strife/ before using this software."
+    echo ""
+    echo "In order to play Strife your user should be part of the 'games'"
+    echo "group. You will have to log out and back in for the change to"
+    echo "take effect."
+    echo "# gpasswd -a USERNAME games"
+}
+
+pre_upgrade() {
+    echo "If you get messages saying that files already exist on filesystem"
+    echo "it means that the Strife client has updated on its own. You should"
+    echo "be able to delete those files and procede with the upgrade safely."
+}
