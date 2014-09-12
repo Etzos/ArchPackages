@@ -2,7 +2,7 @@
 # Contributer: Etzos <supercodingmonkey@gmail.com>
 pkgname=strife
 pkgver=0.4.0.2
-pkgrel=2
+pkgrel=3
 pkgdesc="Second generation MOBA created by S2 Games"
 url="https://strife.com"
 arch=('i686' 'x86_64')
@@ -13,10 +13,13 @@ install='strife.install'
 _arch=""
 if test "$CARCH" == x86_64; then
     _arch="64"
+    md5sums=('2879f0b65e7ccabda16eedda27f0b6a9')
+else if test "$CARCH" == i686; then
+    md5sums=('a014d39b4762276842cce482b79461c3')
 fi
 source=("http://dl.strife.com/af1dfc2754268375727a3eec1749b27e/StrifeLinux${_arch}-${pkgver}.tar.gz"
         "strife.desktop")
-md5sums=('2879f0b65e7ccabda16eedda27f0b6a9'
+md5sums=("${md5sums[@]}"
          'ca27d2d4bb85cf3bf694cc95fca40ca5')
 
 # WARNING: I am using a faster compression algorithm by default, this will sometimes not work with AUR helpers!
