@@ -10,8 +10,7 @@ url="http://www.texturepacker.com"
 license=('custom:texturepacker')
 install='texturepacker.install'
 depends=('glib2' 'hicolor-icon-theme' 'desktop-file-utils' 'shared-mime-info')
-_ARCH='64'
-source=("http://www.codeandweb.com/download/texturepacker/${pkgver}/TexturePacker-${pkgver}-ubuntu${_ARCH}.deb")
+source=("http://www.codeandweb.com/download/texturepacker/${pkgver}/TexturePacker-${pkgver}-ubuntu64.deb")
 md5sums=('39a06d0de96540a9400e62f1de69d514')
 
 build() {
