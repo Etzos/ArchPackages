@@ -21,7 +21,7 @@ source=(http://sqlitestudio.pl/files/sqlitestudio$_pkgver/complete/tar/sqlitestu
         tclconfig.diff)
 sha256sums=('fbbad8c0fc1c9df4e83f9b00f94385daf94149febf97ca264250e580c5cfbe95'
             'd656ebc7fa035665cc43315e3398f7f7eae938e080c6b712ace411bb71245c1b'
-            'c5a26a9b9003b04274887a0e0febda13eea49bb46c618eaad0b5b5c88b1cc1d2'
+            '330e1d71e6ebd858af0380c5224a7d8264546f036570e5062b68fad6ae0adf9c'
             'f63b112d42bc670ab95a264ee1d82acdefad34733c18554b17801fa5c2f56bae')
 
 prepare() {
