@@ -2,7 +2,7 @@
 # Contributer: Gordin <9ordin @t gmail dot com>
 
 pkgname=texturepacker
-pkgver=3.6.0
+pkgver=3.7.0
 pkgrel=1
 pkgdesc="Sprite sheet creator and image optimizer"
 arch=('x86_64')
@@ -11,10 +11,10 @@ license=('custom:texturepacker')
 install='texturepacker.install'
 depends=('glib2' 'hicolor-icon-theme' 'desktop-file-utils' 'shared-mime-info')
 source=("http://www.codeandweb.com/download/texturepacker/${pkgver}/TexturePacker-${pkgver}-ubuntu64.deb")
-md5sums=('39a06d0de96540a9400e62f1de69d514')
+md5sums=('098686a74cc6c0ddd842bc5daeb32227')
 
 build() {
-    ar -xv "TexturePacker-${pkgver}-ubuntu${_ARCH}.deb"
+    ar -xv "TexturePacker-${pkgver}-ubuntu64.deb"
     tar -xvf data.tar.xz
 }
 
