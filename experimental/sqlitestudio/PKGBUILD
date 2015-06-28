@@ -4,9 +4,9 @@
 
 pkgname=sqlitestudio
 _pkgname=SQLiteStudio
-pkgver=3.0.3
+pkgver=3.0.4
 _pkgver=3
-pkgrel=2
+pkgrel=1
 pkgdesc='Database manager for SQLite'
 arch=('i686' 'x86_64')
 url='http://sqlitestudio.pl/'
